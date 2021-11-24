@@ -77,8 +77,10 @@ class Polynomials:
         l1 = List_tools(list_degree)
         return l1.convert_int()
     def highest_degree(self,poly,variable):
-        return max(self.degree(poly,variable))
-
+        if self.degree(poly,variable):
+            return max(self.degree(poly,variable))
+        else:
+            return 0
     def coffecients(self,poly,variable,bol=None):
         variablexx="1"+variable
         val_s=Polynomials.obj.poly_list(poly,variable,variablexx,boolen=True)
