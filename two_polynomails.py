@@ -1,6 +1,5 @@
 
 
-
 from string_modifers import String_tools
 from polyma import *
 
@@ -98,11 +97,9 @@ class add_poly:
         mult_expresiion=add_poly(expr,self.variable).add()
         return mult_expresiion
     def substutie_value(self,term:int):
+        valy=0
         expressadd=self.add()
         express=String_tools().poly_list(expressadd,self.variable,"1"+self.variable,True)
-        #print(f"step:1  {express}")
-        #subs=String_tools().multiple_replace("x","*"+str(term),express)
-        #print(f'step:2  {subs}')
         constantx=Polynomials().constants(express,self.variable,True)
         coffecientx=Polynomials().coffecients(express,self.variable)
         degreex=Polynomials().degree(express,self.variable)
@@ -110,7 +107,9 @@ class add_poly:
         sumx=0
         for deg,cof in dict_eval.items():
             sumx+=cof*(term**deg)
-        return sumx+constantx[0]
+        if constantx:
+            valy=constantx[0]
+        return sumx+valy
     def find_zeroes_poly(self):
         zeroes=[]
         degree=Polynomials().highest_degree(self.expression,self.variable)
