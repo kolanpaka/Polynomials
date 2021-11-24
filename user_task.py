@@ -25,7 +25,10 @@ try:
     some=False
     while run:
         function = input(f"f(variable):  ")
-        if function.isnumeric():
+        function_d=function[:]
+        if function_d.startswith("-"):
+            function_d=function_d.removeprefix("-")
+        if function_d.isnumeric():
             some=True
             variable="x"
         function = string_modifers.String_tools().filter_out(function)
