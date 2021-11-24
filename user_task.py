@@ -34,7 +34,7 @@ try:
         k = int(input("what is your task :  "))
         cosmo = polyma.Polynomials().coffecients(function, variable)
         degreeo = polyma.Polynomials().degree(function, variable)
-        constants = polyma.Polynomials().constants(function, variable)
+        constants = polyma.Polynomials().constants(function, variable,True)
         polyno_terms = polyma.Polynomials().poly_terms(function, variable)
         if k == 1:
             printd = polyma.Polynomials().print_poly(degreeo, cosmo, constants, variable)
