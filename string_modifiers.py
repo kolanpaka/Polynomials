@@ -132,6 +132,11 @@ class String_tools:
             new = str(int(cof) ** int(exp))
             list_sym.append(old)
             list_vsl.append(new)
+        con=0
+        for k in list_sym:
+            if k.startswith("-"):
+                list_vsl[con]="-"+list_vsl[con]
+            con+=1
         for i in range(len(list_sym)):
             str2=str2.replace(list_sym[i],list_vsl[i])
         return str2
